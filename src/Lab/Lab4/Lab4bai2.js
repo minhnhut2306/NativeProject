@@ -43,7 +43,7 @@ const Lab4bai2 = () => {
                 </View>
                 <View style={styles.contaihello}>
                     <Text style={styles.textFont2}>
-                        Hi Welcome Back!
+                        Hello again you have been missed!
                     </Text>
                 </View>
                 <View style={styles.contaianh}>
@@ -79,6 +79,11 @@ const Lab4bai2 = () => {
                         />
                     </TouchableOpacity>
                 </View>
+                <View style={styles.btncontailogin}>
+                    <TouchableOpacity style={styles.btnlogin}>
+                        <Text style={styles.textlogin}>Login</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.tong}>
                     <View style={styles.gach} />
                     <View>
@@ -86,15 +91,19 @@ const Lab4bai2 = () => {
                     </View>
                     <View style={styles.gach} />
                 </View>
-                <View style={styles.containerbutton}>
-                    <TouchableOpacity style={styles.buttongoogle}>
-                        <Image style={styles.logogg} source={require('../../image/icongoogle.png')} />
-                        <Text style={styles.buttonText}>Google</Text>
-                    </TouchableOpacity>
+                <View style={styles.containerbutton}>   
                     <TouchableOpacity style={styles.buttongoogle}>
                         <Image style={styles.logogg} source={require('../../image/ic_facebook.png')} />
                         <Text style={styles.buttonText}>Facebook</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttongoogle}>
+                        <Image style={styles.logogg} source={require('../../image/icongoogle.png')} />
+                        <Text style={styles.buttonText}>Google</Text>
+                    </TouchableOpacity> 
+                </View>
+                <View style={styles.textcontainer}>
+                    <Text style={styles.textdont}>Don't have an account? </Text>
+                    <Text style={styles.textgegister}>Register</Text>
                 </View>
             </View>
         </ScrollView>
@@ -102,6 +111,30 @@ const Lab4bai2 = () => {
 };
 
 const styles = StyleSheet.create({
+    btncontailogin:{
+        paddingEnd:15,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    textlogin:{
+      color:'black',
+      fontWeight:'bold',
+      fontSize:18,
+    },
+    btnlogin:{
+        width: '100%',
+        height: 48,
+        fontFamily: 'Poppins',
+        fontStyle: 'normal',
+        borderRadius: 8,
+        borderWidth: 1,
+        paddingHorizontal: 17,
+        backgroundColor:'#0000FF',
+        paddingVertical: 11,
+        color: 'black',
+        marginTop:20,
+        alignItems:'center',
+    },
     container: {
         width: '100%',
         height: '100%',
@@ -248,6 +281,26 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         color: '#121212',
     },
+    textcontainer: {
+      alignItems: 'center',
+      justifyContent:'center',
+      flexDirection: 'row',
+      marginTop:30,
+    },
+    textdont:{
+        color: 'black',
+        fontSize: 15,
+        fontWeight: '400',
+        lineHeight: 26,
+        letterSpacing: 0.5,
+    },
+    textgegister:{
+        color: '#FF00FF',
+        fontSize: 15,
+        fontWeight: 'bold',
+        lineHeight: 26,
+        letterSpacing: 0.5,
+    }
 });
 
 export default Lab4bai2;
