@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput,TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import React, { useState } from 'react'
 
 const Lab4bai2 = () => {
@@ -29,57 +29,75 @@ const Lab4bai2 = () => {
             // navigation.navigate('TabNavigation');
         } else {
             setEmailError('Sai email hoặt mật khẩu');
-
         }
-
     };
+
     return (
-        <View style={styles.container}>
-            <View style={styles.contaichu}>
-                <Text style={styles.textFont}>
-                    Hi Welcome Back!
-                </Text>
-                <Image source={require('../../image/tay.png')} style={styles.image} resizeMode="contain" />
-            </View>
-            <View style={styles.contaihello}>
-                <Text style={styles.textFont2}>
-                    Hi Welcome Back!
-                </Text>
-            </View>
-            <View style={styles.contaianh}>
-                <Image source={require('../../image/anh.png')} style={styles.photo} resizeMode="cover" />
-            </View> 
-            <Text style={styles.textadd}>Email Address</Text>
-            <View style={[styles.containerinput, styles.emailinput]}>
-               
-                <TextInput style={styles.input} placeholder='Email' placeholderTextColor='#828282'
-                    onChangeText={(text) => {
-                        setEmail(text);
-                        setEmailError('');
-                    }} />
-                {!!emailError && <Text style={styles.errorText}>{emailError}</Text>}
-            </View>
-            <Text style={styles.textpassword}>Password</Text>
-            <View style={[styles.containerinput, styles.passworinput]}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='Password'
-                    placeholderTextColor='#828282'
-                    secureTextEntry={securepassword}
-                    onChangeText={(test) => {
-                        setPassword(test)
-                        setPasswordError('');
-                    }}
-                />
-                {!!passwordError && <Text style={styles.errorText}>{passwordError}</Text>}
-                <TouchableOpacity onPress={() => setSecurepassword(!securepassword)} style={styles.easypass}>
-                    <Image
-                        style={styles.easypass}
-                        source={securepassword ? require('../../image/hide.png') : require('../../image/show.png')}
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={styles.contaichu}>
+                    <Text style={styles.textFont}>
+                        Hi Welcome Back!
+                    </Text>
+                    <Image source={require('../../image/tay.png')} style={styles.image} resizeMode="contain" />
+                </View>
+                <View style={styles.contaihello}>
+                    <Text style={styles.textFont2}>
+                        Hi Welcome Back!
+                    </Text>
+                </View>
+                <View style={styles.contaianh}>
+                    <Image source={require('../../image/anh.png')} style={styles.photo} resizeMode="cover" />
+                </View>
+                <Text style={styles.textadd}>Email Address</Text>
+                <View style={[styles.containerinput, styles.emailinput]}>
+
+                    <TextInput style={styles.input} placeholder='Email' placeholderTextColor='#828282'
+                        onChangeText={(text) => {
+                            setEmail(text);
+                            setEmailError('');
+                        }} />
+                    {!!emailError && <Text style={styles.errorText}>{emailError}</Text>}
+                </View>
+                <Text style={styles.textpassword}>Password</Text>
+                <View style={[styles.containerinput, styles.passworinput]}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Password'
+                        placeholderTextColor='#828282'
+                        secureTextEntry={securepassword}
+                        onChangeText={(test) => {
+                            setPassword(test)
+                            setPasswordError('');
+                        }}
                     />
-                </TouchableOpacity>
+                    {!!passwordError && <Text style={styles.errorText}>{passwordError}</Text>}
+                    <TouchableOpacity onPress={() => setSecurepassword(!securepassword)} style={styles.easypass}>
+                        <Image
+                            style={styles.easypass}
+                            source={securepassword ? require('../../image/hide.png') : require('../../image/show.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.tong}>
+                    <View style={styles.gach} />
+                    <View>
+                        <Text> Or Login with</Text>
+                    </View>
+                    <View style={styles.gach} />
+                </View>
+                <View style={styles.containerbutton}>
+                    <TouchableOpacity style={styles.buttongoogle}>
+                        <Image style={styles.logogg} source={require('../../image/icongoogle.png')} />
+                        <Text style={styles.buttonText}>Google</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttongoogle}>
+                        <Image style={styles.logogg} source={require('../../image/ic_facebook.png')} />
+                        <Text style={styles.buttonText}>Facebook</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
@@ -155,7 +173,7 @@ const styles = StyleSheet.create({
     emailinput: {
         marginTop: 20
     },
-    textadd:{
+    textadd: {
         width: '100%',
         height: 48,
         fontFamily: 'Poppins',
@@ -182,6 +200,53 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 15,
         top: -10,
+    },
+    tong: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        marginTop: 20,
+        paddingEnd: 15,
+    },
+    gach: {
+        flex: 1,
+        height: 1,
+        backgroundColor: '#252A32',
+    },
+    containerbutton: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 9,
+        paddingEnd: 15,
+    },
+    buttongoogle: {
+        width: '48%',
+        height: 57,
+        backgroundColor: '#fff',
+        borderColor: '#000',
+        borderWidth: 1,
+        paddingHorizontal: 17,
+        borderRadius: 20,
+        paddingEnd: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    logogg: {
+        width: 15,
+        height: 15,
+        position: 'absolute',
+        top: 20,
+        left: 17,
+    },
+    buttonText: {
+        fontSize: 14,
+        fontFamily: 'Poppins',
+        fontStyle: 'normal',
+        fontWeight: '700',
+        lineHeight: 26,
+        letterSpacing: 0.5,
+        color: '#121212',
     },
 });
 
